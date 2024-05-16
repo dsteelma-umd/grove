@@ -5,7 +5,7 @@
     <td>
         <ul class="properties">
             {% for property in term.properties.all %}
-            <li class="property">{% include 'vocabs/property_detail.html' %}</li>
+            {% include 'vocabs/property_detail.html' %}
             {% endfor %}
         </ul>
         <div class="properties-controls">

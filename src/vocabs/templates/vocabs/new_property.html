@@ -6,7 +6,7 @@
       {{ form.value }}
       {{ form.value.errors }}
     </fieldset>
-    <button class="update" hx-post="{% url 'new_property' %}" hx-target="closest .property" type="submit">Save</button>
+    <button class="update" hx-post="{% url 'new_property' %}" hx-target="closest .property" hx-swap="outerHTML" type="submit">Save</button>
     <button onclick="this.parentNode.parentNode.remove()">Cancel</button>
   </form>
 </li>

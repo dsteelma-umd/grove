@@ -1,10 +1,12 @@
-<strong title="{{ property.predicate.uri }}">{{ property.predicate }}</strong>
-{% if property.value_is_uri %}
-<a href="{{ property.value }}">{{ property.value_as_curie }}</a>
-{% else %}
-{{ property.value }}
-{% endif %}
-<span class="controls">
-  <button class="edit" hx-get="{% url 'edit_property' pk=property.id %}" hx-target="closest .property" title="Edit">✎</button>
-  <button class="delete" hx-delete="{% url 'show_property' pk=property.id %}" hx-swap="delete" hx-target="closest .property" title="Delete">╳</button>
-</span>
+<li class="property">
+  <strong title="{{ property.predicate.uri }}">{{ property.predicate }}</strong>
+  {% if property.value_is_uri %}
+  <a href="{{ property.value }}">{{ property.value_as_curie }}</a>
+  {% else %}
+  {{ property.value }}
+  {% endif %}
+  <span class="controls">
+    <button class="edit" hx-get="{% url 'edit_property' pk=property.id %}" hx-target="closest .property" hx-swap="outerHTML" title="Edit">✎</button>
+    <button class="delete" hx-delete="{% url 'show_property' pk=property.id %}" hx-swap="delete" hx-target="closest .property" hx-swap="outerHTML" title="Delete">╳</button>
+  </span>
+</li>

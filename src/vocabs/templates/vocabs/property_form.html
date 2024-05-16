@@ -1,10 +1,12 @@
-<form method="post" action="{% url 'edit_property' pk=property.id %}">
-  {% csrf_token %}
-  {{ form.term }} {{ form.predicate }}
-  <fieldset>
-    {{ form.value }}
-    {{ form.value.errors }}
-  </fieldset>
-  <button class="update" hx-post="{% url 'edit_property' pk=property.id %}" hx-target="closest .property" type="submit">Save</button>
-  <button hx-get="{% url 'show_property' pk=property.id %}" hx-target="closest .property">Cancel</button>
-</form>
+<li class="property">
+  <form method="post" action="{% url 'edit_property' pk=property.id %}">
+    {% csrf_token %}
+    {{ form.term }} {{ form.predicate }}
+    <fieldset>
+      {{ form.value }}
+      {{ form.value.errors }}
+    </fieldset>
+    <button class="update" hx-post="{% url 'edit_property' pk=property.id %}" hx-target="closest .property" hx-swap="outerHTML" type="submit">Save</button>
+    <button hx-get="{% url 'show_property' pk=property.id %}" hx-target="closest .property" hx-swap="outerHTML">Cancel</button>
+  </form>
+</li>
